@@ -21,17 +21,25 @@ a {
 
 }
 
-h1 {
-    line-height: 18px;
-    padding-bottom: 4px;
-    text-transform: lowercase;
-}
+header {
+    h1 {
+        line-height: 22px;
+        padding-bottom: 4px;
+        text-transform: lowercase;
+    }
 
-h2 {
-    line-height: 12px;
-    text-transform: lowercase;
-    letter-spacing: 2px;
-    padding-bottom: 4px;
+    @include media-query($on-palm) {
+        h1 {
+            line-height: normal;
+        }
+    }
+
+    h2 {
+        line-height: 12px;
+        text-transform: lowercase;
+        letter-spacing: 2px;
+        padding-bottom: 4px;
+    }
 }
 
 body {
