@@ -90,6 +90,7 @@ footer.footer {
 
 .links {
     padding-top: 18px;
+    text-transform: lowercase;
 
     .nav-trigger {
         display: none;
@@ -101,11 +102,10 @@ footer.footer {
     .page-link {
         font-size: 10px;
         line-height: 10px;
+    }
 
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
+    .linkdesc {
+        color: #CCC;
     }
 
     @include media-query($on-palm) {
@@ -159,12 +159,10 @@ footer.footer {
             }
             margin-left: 20px;
         }
+        .linkdesc {
+            display: none;
+        }
     }
-}
-
-.linkdesc {
-    display: none;
-    color: #CCC;
 }
 
 .bk2top {
