@@ -1,0 +1,9 @@
+---
+layout: page
+---
+
+    <ul class="post-list">
+      {% for post in site.tags[page.tag] %}
+      {% include post-list-entry.html %}
+      {% endfor %}
+    </ul>

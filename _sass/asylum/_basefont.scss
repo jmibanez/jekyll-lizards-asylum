@@ -1,0 +1,192 @@
+/* Generic font for the whole site */
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+}
+
+/* Typography section */
+
+// code, tt, pre {
+//     font: 11px monaco, "andale mono", courier, "courier new"; 
+//     background-color: transparent;
+// }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 4px 0 0 0;
+}
+
+h1 {
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0 0 0;
+}
+
+h4 {
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 18px 0 0 0;
+    margin: 10px 0 0 0;
+}
+
+h5 {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+/* Classes */
+/* 10:05 PM 1/12/2002: Added classes for global use */
+
+.inpara {
+    display: inline;
+}
+/* inpara: Inline headers and para */
+
+.brkdelim {
+    line-height: 1em;
+}
+
+.archname {
+    padding: 2px;
+    line-height: 1em;
+}
+
+.copyright {
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.errata, .gbsign {
+    font-style: italic;
+    line-height: 12px;
+}
+
+.bk2top {
+    font-size: 11px;
+    text-align: right;
+    margin: 32px 0px 15px 0px;
+}
+
+.note, .caption {
+    font-size: 10px;
+    line-height: 11px;
+}
+
+.compliance {
+    font-size: 11px;
+    font-style: italic;
+}
+
+.ahem {
+    display: none;
+}
+
+.flavortext {
+    border-top: 1px dotted;
+    border-bottom: 1px dotted;
+
+}
+
+/* Generic text classes; applies
+   bold, italic, underline attribs
+   to other classes */
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.uline {
+    text-decoration: underline;
+}
+
+.reset {
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+}
+
+.comments-body {
+    font-size: 11px;
+    border-top: 1px solid black;
+    padding: 5px 15px 2px;
+}
+
+.comments-post {
+    font-size: 10px;
+    font-style: italic;
+    text-align: right;
+}
+
+
+/* Greeked text. For testing
+   purposes only. Set to 
+   display: none; when done
+   testing */
+
+.greek {
+    display: none;
+}
+
+/* Tracker images and code */
+#im {
+    height: 38px;
+    border: 0;
+    width: 41px;
+}
+
+.svg-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    fill: #{$grey-color};
+    padding-right: 5px;
+    vertical-align: text-top;
+}
+
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+.wrapper {
+  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  @extend %clearfix;
+
+  @include media-query($on-laptop) {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+  }
+}
