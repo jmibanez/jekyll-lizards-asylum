@@ -64,9 +64,9 @@ body {
 }
 
 @media (min-width: $on-laptop) {
-    main.text
-    {
-        float: right;        /* Neil */
+    main.text {
+        min-height: 750px;
+        float: right;
 	text-align: left;
 	left: 0;
 	padding: 0 0 0 1em;
