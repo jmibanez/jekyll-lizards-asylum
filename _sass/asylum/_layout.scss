@@ -212,6 +212,18 @@ ins {
     @include relative-font-size(1.5);
 }
 
+blockquote {
+    color: $grey-color;
+    border-left: 4px solid $grey-color-light;
+    padding-left: $spacing-unit / 4;
+    @include relative-font-size(1.2);
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
 .social-media-list {
   li + li {
     padding-top: 5px;
