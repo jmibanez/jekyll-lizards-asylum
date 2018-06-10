@@ -188,6 +188,12 @@ ins {
     @extend .bottom-link
 }
 
+.tag-header {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
 .post-list {
     margin-left: 0;
     padding: 0;
