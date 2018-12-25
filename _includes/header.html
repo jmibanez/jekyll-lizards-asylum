@@ -4,7 +4,7 @@
           <h1>{{ page.title }}</h1>
           <h2>{% if page.subtitle %}{{ page.subtitle }}{% else if page.date %}
             <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-              {% assign date_format = site.asylum.date_format | default: "%b %-d, %Y" %}
+              {% assign date_format = site.asylum.date_format | default: "%B %-d, %Y" %}
               {{ page.date | date: date_format }}
             </time>{% endif %}
           </h2>
@@ -25,12 +25,15 @@
             <div class="trigger">
               {% assign sorted_pages = site.pages | sort: "order" %}
               {% for my_page in sorted_pages %}
+                {% if my_page.order %}
                 {% if my_page.title %}
                 <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a><br />
                 {% if my_page.subtitle %}
                 <span class="linkdesc">{{ my_page.subtitle | escape | lower }}<br /></span>
                 {% else %}
                 <span class="linkdesc">&mdash;<br /></span>
+                {% endif %}
+
                 {% endif %}
                 {% endif %}
               {% endfor %}

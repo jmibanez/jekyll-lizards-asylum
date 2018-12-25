@@ -23,7 +23,7 @@ a {
 
 header {
     h1 {
-        line-height: 22px;
+        line-height: $base-font-size * 2;
         padding-bottom: 4px;
         text-transform: lowercase;
     }
@@ -57,19 +57,19 @@ body {
 @media (min-width: $on-laptop) {
     header.side-bar {
         float: left;
-        padding: 25% 0 8% 0;
+        padding: 6% 0 8% 0;
         width: 34%;
         text-align: right;
     }
 }
 
 @media (min-width: $on-laptop) {
-    main.text
-    {
-        float: right;        /* Neil */
+    main.text {
+        min-height: 750px;
+        float: right;
 	text-align: left;
 	left: 0;
-	padding: 0 0 0 1em;
+	padding: 0;
 	border-left: 1px solid #999;
 	width: 65%;
 	voice-family: "\"}\"";
@@ -100,8 +100,8 @@ footer.footer {
     }
 
     .page-link {
-        font-size: 10px;
-        line-height: 10px;
+        font-size: $small-font-size;
+        line-height: $small-font-size;
     }
 
     .linkdesc {
@@ -172,6 +172,62 @@ footer.footer {
 ins {
     color: #663;
     font-style: none;
+}
+
+.bottom-link {
+    float: right;
+    text-align: right;
+    margin: 32px 0px 15px 0px;
+    @extend .note;
+}
+
+.previous-post-link {
+    @extend .bottom-link
+}
+.rss-subscribe {
+    @extend .bottom-link
+}
+
+.tag-header {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.post-list {
+    margin-left: 0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit / 3;
+        &:not(:last-child) {
+            border-bottom: 1px dashed $grey-color;
+        }
+    }
+
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+.post-link {
+    display: block;
+    @include relative-font-size(1.5);
+}
+
+blockquote {
+    color: $grey-color;
+    border-left: 4px solid $grey-color-light;
+    padding-left: $spacing-unit / 4;
+    @include relative-font-size(1.2);
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
 }
 
 .social-media-list {
