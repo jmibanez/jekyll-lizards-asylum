@@ -3,3 +3,7 @@ layout: default
 ---
 
 {{ content }}
+
+{% if page.previous %}
+<p class="previous-post-link">Previously: <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }}</a></p>
+{% endif %}

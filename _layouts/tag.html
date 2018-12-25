@@ -1,6 +1,12 @@
 ---
 layout: page
 ---
+    {% assign content_stripped = content | strip_newlines %}
+    {% if content_stripped != "" %}
+    <div class="tag-header">
+      {{ content }}
+    </div>
+    {% endif %}
 
     <ul class="post-list">
       {% for post in site.tags[page.tag] %}
