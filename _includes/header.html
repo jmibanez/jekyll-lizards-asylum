@@ -26,6 +26,7 @@
               {% assign sorted_pages = site.pages | sort: "order" %}
               {% for my_page in sorted_pages %}
                 {% if my_page.order %}
+                {% unless my_page.autogen %}
                 {% if my_page.title %}
                 <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a><br />
                 {% if my_page.subtitle %}
@@ -36,9 +37,9 @@
 
                 {% endif %}
                 {% endif %}
+                {% endunless %}
               {% endfor %}
             </div>
           </nav>
           {% endif %}
         </header>
-
