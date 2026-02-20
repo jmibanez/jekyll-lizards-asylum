@@ -8,8 +8,23 @@ layout: page
     </div>
     {% endif %}
 
-    <ul class="post-list">
-      {% for post in site.tags[page.tag] %}
-      {% include post-list-entry.html %}
-      {% endfor %}
-    </ul>
+    {% assign posts = paginator.posts | default: site.tags[page.tag] %}
+
+    {% if posts.size > 0 %}
+      <ul class="post-list">
+        {% for post in posts %}
+        {% include post-list-entry.html %}
+        {% endfor %}
+      </ul>
+
+      {% if paginator and paginator.total_pages > 1 %}
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            <a class="previous" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer posts</a>
+          {% endif %}
+          {% if paginator.next_page %}
+            <a class="next" href="{{ paginator.next_page_path | relative_url }}">Older posts &rarr;</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
