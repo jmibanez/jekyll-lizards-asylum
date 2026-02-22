@@ -4,7 +4,12 @@ layout: default
 
 <div class="home">
 
-  {{ content }}
+  {% assign content_stripped = content | strip_newlines %}
+  {% if content_stripped != "" %}
+  <div class="tag-header">
+    {{ content }}
+  </div>
+  {% endif %}
 
   {% assign posts = paginator.posts | default: site.posts %}
 
