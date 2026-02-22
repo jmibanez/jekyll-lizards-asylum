@@ -48,6 +48,10 @@ body {
     margin: 0 8% 0 15%;
     padding: 0;
     background-color: #25383c;
+    background-image: url("/assets/m251210_0002-gradient.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
 }
 
 body.has-marginalia .footnotes {
@@ -85,9 +89,11 @@ body.has-marginalia hr {
 @media (min-width: $on-laptop) {
     header.side-bar {
         float: left;
-        padding: 6% 0 8% 0;
+        padding: 6% 1% 8% 1%;
         width: 30%;
         text-align: right;
+        background-color: #25383cdd;
+        background-blend-mode: darken;
     }
 }
 
@@ -342,6 +348,8 @@ blockquote {
   color: $grey-color;
   margin-left: -$spacing-unit / 2;
   @extend %clearfix;
+  background-color: #25383cdd;
+  background-blend-mode: darken;
 }
 
 .footer-col {
