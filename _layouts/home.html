@@ -15,13 +15,16 @@
         {%- include header.html -%}
 
         <main class="text" aria-label="Content">
-          <div class="wrapper">
-            {{ latest_post.content }}
+          <div class="wrapper-and-marginalia">
+            <div class="wrapper">
+              {{ latest_post.content }}
 
-            {% assign prev_post = site.posts[1] %}
-            {% if prev_post %}
-            <p class="previous-post-link">Previously: <a href="{{ prev_post.url | relative_url }}">{{ prev_post.title | strip_html }}</a></p>
-            {% endif %}
+              {% assign prev_post = site.posts[1] %}
+              {% if prev_post %}
+                <p class="previous-post-link">Previously: <a href="{{ prev_post.url | relative_url }}">{{ prev_post.title | strip_html }}</a></p>
+              {% endif %}
+            </div>
+            <aside class="marginalia" aria-label="Marginal notes"></aside>
           </div>
         </main>
 
