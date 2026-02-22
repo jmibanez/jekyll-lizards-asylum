@@ -23,8 +23,8 @@
             </label>
 
             <div class="trigger">
-              <a class="page-link" href="/">home</a><br />
-              <span class="linkdesc">lizard's asylum<br /></span>
+              <a class="page-link" href="/">current</a><br />
+              <span class="linkdesc">latest post<br /></span>
               {% assign sorted_pages = site.pages | sort: "order" %}
               {% for my_page in sorted_pages %}
                 {% if my_page.order %}
