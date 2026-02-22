@@ -3,6 +3,18 @@ body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
 }
 
+main.text {
+    p {
+        text-indent: 2em;
+    }
+
+    .marginal-note {
+        p {
+            text-indent: 0;
+        }
+    }
+}
+
 /* Typography section */
 
 // code, tt, pre {
@@ -84,9 +96,24 @@ a {
     margin: 32px 0px 15px 0px;
 }
 
-.note, .caption {
+.marginal-note, .note, .caption {
     font-size: $small-font-size;
     line-height: $small-font-size;
+    font-style: italic;
+}
+
+/* Footnote markers in text */
+.footnote-ref,
+a.footnote {
+    font-size: 0.75em;
+    vertical-align: super;
+}
+
+/* Sidenote number */
+.marginal-note-number {
+    font-weight: bold;
+    font-size: 0.85em;
+    margin-right: 0.35rem;
 }
 
 .compliance {

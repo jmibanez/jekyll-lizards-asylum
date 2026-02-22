@@ -45,9 +45,34 @@ header {
 }
 
 body {
-    margin: 0 15%;
+    margin: 0 8% 0 15%;
     padding: 0;
     background-color: #25383c;
+}
+
+body.has-marginalia .footnotes {
+    display: none;
+}
+
+body.has-marginalia hr + .footnotes {
+    display: none; /* already hiding footnotes */
+}
+
+body.has-marginalia hr {
+    display: none;
+}
+
+@media (max-width: $on-laptop) {
+    body.has-marginalia .footnotes {
+        display: block;
+    }
+    body.has-marginalia hr + .footnotes {
+        display: block; /* already hiding footnotes */
+    }
+    body.has-marginalia hr {
+        display: block;
+    }
+
 }
 
 #masterwrap {
@@ -61,7 +86,7 @@ body {
     header.side-bar {
         float: left;
         padding: 6% 0 8% 0;
-        width: 34%;
+        width: 30%;
         text-align: right;
     }
 }
@@ -73,11 +98,67 @@ body {
 	text-align: left;
 	left: 0;
 	padding: 0;
-	width: 65%;
+	width: 68%;
 	voice-family: "\"}\"";
 	voice-family:inherit;
-	width: 63%;
+	width: 66%;
     }
+}
+
+/* marginalia */
+
+.wrapper-and-marginalia {
+    position: relative;
+    display: block;
+}
+
+@media (min-width: $on-laptop) {
+    .wrapper-and-marginalia {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        column-gap: 2.5rem;
+        align-items: start;
+    }
+}
+
+/* Marginalia column */
+.marginalia {
+    font-size: $small-font-size;
+    line-height: $small-font-size * 1.1;
+    color: $grey-color-light;
+}
+
+/* Inline sidenotes (placed inside content) */
+.sidenote,
+.marginal-note {
+    display: block;
+    position: relative;
+    margin: 0.75rem 0 1rem 0;
+    padding-left: 0.5rem;
+    border-left: 2px solid #25383c;
+;
+}
+
+/* Wide screens: float notes into right margin */
+@media (min-width: $on-laptop) {
+    .sidenote,
+    .marginal-note {
+        float: right;
+        clear: right;
+        width: 200px;
+        margin: 0.2rem -240px 1rem 2rem;
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+/* Footnotes list fallback styling */
+.footnotes {
+    font-size: $small-font-size;
+    color: $grey-color-light;
+    border-top: 1px dotted $grey-color-light;
+    margin-top: 2rem;
+    padding-top: 0.75rem;
 }
 
 main.text {

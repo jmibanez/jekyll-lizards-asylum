@@ -11,8 +11,11 @@
         {%- include header.html -%}
 
         <main class="text" aria-label="Content">
-          <div class="wrapper">
-            {{ content }}
+          <div class="wrapper-and-marginalia">
+            <div class="wrapper">
+              {{ content }}
+            </div>
+            <aside class="marginalia" aria-label="Marginal notes"></aside>
           </div>
         </main>
 
