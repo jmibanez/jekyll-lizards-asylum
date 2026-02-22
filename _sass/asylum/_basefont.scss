@@ -4,7 +4,7 @@ body {
 }
 
 main.text {
-    p {
+    p:first-of-type {
         text-indent: 2em;
     }
 
