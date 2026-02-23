@@ -41,6 +41,18 @@
                 {% endunless %}
                 {% endif %}
               {% endfor %}
+
+              <div class="next-prev-entry">
+                {% if page.next %}
+                <a class="page-link" href="{{ page.next.url | relative_url }}">next</a><br />
+                <span class="linkdesc">{{ page.next.title | strip_html }}<br /></span>
+                {% endif %}
+                {% if page.previous %}
+                <a class="page-link" href="{{ page.previous.url | relative_url }}">previously</a><br />
+                <span class="linkdesc">{{ page.previous.title | strip_html }}<br /></span>
+                {% endif %}
+              </div>
+
               {% if paginator and paginator.total_pages > 1 %}
                 <div class="pagination">
                   {% if paginator.previous_page %}
