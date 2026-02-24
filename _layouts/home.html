@@ -21,11 +21,10 @@
             </div>
             <aside class="marginalia" aria-label="Marginal notes">
               {% if page.tags %}
-              <p class="tags">Tags: [
-              {% for tag in page.tags %}
+              {% assign page_tags = page.tags | sort %}
+              <p class="tags">{% for tag in page_tags %}
               <a href="/tag/{{ tag }}/index.html">{{ tag }}</a>{% unless forloop.last %} | {% endunless %}
               {% endfor %}
-              ]
               </p>
               {% endif %}
             </aside>
