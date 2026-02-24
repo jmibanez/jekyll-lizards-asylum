@@ -3,18 +3,6 @@ body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
 }
 
-main.text {
-    p:first-of-type {
-        text-indent: 2em;
-    }
-
-    .marginal-note {
-        p {
-            text-indent: 0;
-        }
-    }
-}
-
 /* Typography section */
 
 // code, tt, pre {
