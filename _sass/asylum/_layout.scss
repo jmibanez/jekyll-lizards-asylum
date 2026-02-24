@@ -289,6 +289,13 @@ ins {
 .previous-post-link {
     @extend .bottom-link
 }
+
+.original-permalink {
+    border-left: 1px solid #25383c;
+    padding-left: 2em;
+    @extend .bottom-link
+}
+
 .rss-subscribe {
     @extend .bottom-link
 }
