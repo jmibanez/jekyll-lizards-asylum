@@ -141,6 +141,13 @@ header.side-bar {
     font-size: $small-font-size;
     line-height: $small-font-size * 1.1;
     color: $grey-color-light;
+
+    p.tags {
+        a {
+            border: 1px solid black;
+            padding: 2px;
+        }
+    }
 }
 
 /* Inline sidenotes (placed inside content) */

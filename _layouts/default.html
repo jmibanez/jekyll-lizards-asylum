@@ -15,7 +15,14 @@
             <div class="wrapper">
               {{ content }}
             </div>
-            <aside class="marginalia" aria-label="Marginal notes"></aside>
+            <aside class="marginalia" aria-label="Marginal notes">
+              {% if page.tags %}
+              <p class="tags">{% for tag in page.tags | sort %}
+              <a href="/tag/{{ tag }}/index.html">{{ tag }}</a>{% unless forloop.last %} | {% endunless %}
+              {% endfor %}
+              </p>
+              {% endif %}
+            </aside>
           </div>
         </main>
 
