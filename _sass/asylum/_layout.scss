@@ -225,6 +225,7 @@ footer.footer {
         top: 9px;
         right: $spacing-unit / 2;
         background-color: $background-color;
+        background-image: none;
         border: 1px solid $grey-color-light;
         border-radius: 5px;
         text-align: right;
@@ -265,11 +266,15 @@ footer.footer {
         .page-link {
             display: block;
             padding: 5px 10px;
+            line-height: 1;
 
             &:not(:last-child) {
                 margin-right: 0;
             }
             margin-left: 20px;
+        }
+        .page-link + br {
+            display: none;
         }
         .linkdesc {
             display: none;
