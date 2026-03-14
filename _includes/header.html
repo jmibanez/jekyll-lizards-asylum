@@ -56,10 +56,10 @@
               {% if paginator and paginator.total_pages > 1 %}
                 <div class="pagination">
                   {% if paginator.previous_page %}
-                    <a class="previous" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer posts</a>
+                    <a class="previous" href="{{ paginator.previous_page_path | relative_url }}">&larr; Previous Page (newer posts)</a>
                   {% endif %}
                   {% if paginator.next_page %}
-                    <a class="next" href="{{ paginator.next_page_path | relative_url }}">Older posts &rarr;</a>
+                    <a class="next" href="{{ paginator.next_page_path | relative_url }}">Next Page (older posts) &rarr;</a>
                   {% endif %}
                 </div>
               {% endif %}
