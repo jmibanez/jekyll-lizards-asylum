@@ -5,7 +5,13 @@
           <h2>{% if page.subtitle %}{{ page.subtitle }}{% else if page.date %}
             <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
               {% assign date_format = site.asylum.date_format | default: "%B %-d, %Y" %}
+              {% if page.tags contains "from_lj" %}
+              {% assign offset_seconds = 28800 %}
+              {% assign adjusted_date = page.date | date: "%s" | plus: offset_seconds %}
+              {{ adjusted_date | date: date_format }}
+              {% else %}
               {{ page.date | date: date_format }}
+              {% endif %}
             </time>{% endif %}
           </h2>
 
