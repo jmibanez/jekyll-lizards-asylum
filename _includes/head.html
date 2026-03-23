@@ -2,7 +2,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {%- seo -%}
+  {%- seo title=false -%}
+  {%- if layout.name == "home" -%}
+    {%- assign latest_post = site.posts | first -%}
+    <title>{{ latest_post.title | strip_html | escape }} | {{ site.title | escape }}</title>
+  {%- else -%}
+    <title>{{ page.title | strip_html | escape }} | {{ site.title | escape }}</title>
+  {%- endif -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
   {%- feed_meta -%}
