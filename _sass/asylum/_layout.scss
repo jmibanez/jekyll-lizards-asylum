@@ -1,9 +1,9 @@
 a {
-    color: #696;
+    color: #2b6036;
     background: transparent;
 
     &:visited {
-        color: gray;
+        color: #696;
     }
     &:hover {
         color: white;
@@ -11,7 +11,7 @@ a {
     }
     .social-media-list &:hover {
         text-decoration: none;
-        color: #696;
+        color: #2b6036;
         background: transparent;
 
         .username {
