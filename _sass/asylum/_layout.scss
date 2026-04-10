@@ -223,6 +223,14 @@ footer.footer {
         color: #CCC;
     }
 
+    a {
+        color: #567e5e;
+    }
+
+    a:visited {
+        color: #696;
+    }
+
     @include media-query($on-palm) {
         position: absolute;
         top: 9px;
