@@ -19,10 +19,13 @@
               {% if page.id %}
               <p class="permalink"><a href="{{ latest_post.url }}"><span class="grey fa-regular fa-bookmark"></span>Permalink</a></p>
               {% endif %}
+              {% if page.originallink %}
+              <p class="original-permalink"><a href="{{ page.originallink }}"><span class="grey fa-regular fa-bookmark"></span>From LiveJournal</a></p>
+              {% endif %}
               {% if page.tags %}
               {% assign page_tags = page.tags | sort %}
               <p class="tags">{% for tag in page_tags %}
-              <a href="/tag/{{ tag }}/index.html">{{ tag }}</a>{% unless forloop.last %} | {% endunless %}
+              <a href="/tag/{{ tag }}/index.html"><span class="grey fa-solid fa-tag"></span>{{ tag }}</a>{% unless forloop.last %}{% endunless %}
               {% endfor %}
               </p>
               {% endif %}

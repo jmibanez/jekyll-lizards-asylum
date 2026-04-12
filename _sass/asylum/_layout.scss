@@ -143,8 +143,10 @@ header.side-bar {
 
     p.tags {
         a {
-            border: 1px solid black;
             padding: 2px;
+        }
+        @include media-query($on-palm) {
+            margin-bottom: 4px;
         }
     }
 }
@@ -309,12 +311,6 @@ ins {
 }
 
 .previous-post-link {
-    @extend .bottom-link
-}
-
-.original-permalink {
-    border-left: 1px solid #25383c;
-    padding-left: 2em;
     @extend .bottom-link
 }
 
