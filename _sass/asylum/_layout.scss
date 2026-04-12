@@ -1,9 +1,13 @@
+@use "sass:math";
+@use "asylum/theme";
+@use "asylum/basefont";
+
 a {
-    color: #696;
+    color: #2b6036;
     background: transparent;
 
     &:visited {
-        color: gray;
+        color: #696;
     }
     &:hover {
         color: white;
@@ -11,7 +15,7 @@ a {
     }
     .social-media-list &:hover {
         text-decoration: none;
-        color: #696;
+        color: #2b6036;
         background: transparent;
 
         .username {
@@ -23,12 +27,13 @@ a {
 
 header {
     h1 {
-        line-height: $base-font-size * 2;
+        line-height: theme.$base-font-size * 2;
         padding-bottom: 4px;
         text-transform: lowercase;
+        color: #fff;
     }
 
-    @include media-query($on-palm) {
+    @include theme.media-query(theme.$on-palm) {
         h1 {
             line-height: normal;
         }
@@ -39,12 +44,47 @@ header {
         text-transform: lowercase;
         letter-spacing: 2px;
         padding-bottom: 4px;
+        color: #fff;
     }
 }
 
 body {
-    margin: 0 15%;
+    margin: 0 8% 0 15%;
     padding: 0;
+    background-color: #25383c;
+    background-image: url("/assets/m251210_0002-gradient.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+
+    @include theme.media-query(theme.$on-laptop) {
+        margin: 0 8%;
+    }
+}
+
+body.has-marginalia .footnotes {
+    display: none;
+}
+
+body.has-marginalia hr + .footnotes {
+    display: none; /* already hiding footnotes */
+}
+
+body.has-marginalia hr {
+    display: none;
+}
+
+@media (max-width: theme.$on-laptop) {
+    body.has-marginalia .footnotes {
+        display: block;
+    }
+    body.has-marginalia hr + .footnotes {
+        display: block; /* already hiding footnotes */
+    }
+    body.has-marginalia hr {
+        display: block;
+    }
+
 }
 
 #masterwrap {
@@ -54,27 +94,111 @@ body {
 #bodywrap {
 }
 
-@media (min-width: $on-laptop) {
-    header.side-bar {
-        float: left;
-        padding: 6% 0 8% 0;
-        width: 34%;
-        text-align: right;
+header.side-bar {
+    background-color: #25383cdd;
+    background-blend-mode: darken;
+    padding: 0 1em;
+
+    .next-prev-entry {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border-top: 1px dashed theme.$grey-color-light;
     }
 }
 
-@media (min-width: $on-laptop) {
+@media (min-width: theme.$on-laptop) {
+    header.side-bar {
+        float: left;
+        padding: 6% 1% 8% 1%;
+        width: 30%;
+        text-align: right;
+        border-radius: 8px;
+    }
+}
+
+@media (min-width: theme.$on-laptop) {
     main.text {
         min-height: 750px;
         float: right;
 	text-align: left;
 	left: 0;
 	padding: 0;
-	border-left: 1px solid #999;
-	width: 65%;
-	voice-family: "\"}\"";
-	voice-family:inherit;
-	width: 63%;
+	width: 66%;
+    }
+}
+
+/* marginalia */
+
+.wrapper-and-marginalia {
+    position: relative;
+    display: block;
+}
+
+@media (min-width: theme.$on-laptop) {
+    .wrapper-and-marginalia {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        column-gap: 2.5rem;
+        align-items: start;
+    }
+}
+
+/* Marginalia column */
+.marginalia {
+    font-size: theme.$small-font-size;
+    line-height: theme.$small-font-size * 1.1;
+    color: theme.$grey-color-light;
+
+    p.tags {
+        a {
+            display: inline-block;
+            padding: 2px;
+        }
+
+        @include theme.media-query(theme.$on-palm) {
+            margin-bottom: 4px;
+        }
+    }
+}
+
+/* Inline sidenotes (placed inside content) */
+.sidenote,
+.marginal-note {
+    display: block;
+    position: relative;
+    margin: 0.75rem 0 1rem 0;
+    padding-left: 0.5rem;
+    border-left: 2px solid #25383c;
+;
+}
+
+/* Wide screens: float notes into right margin */
+@media (min-width: theme.$on-laptop) {
+    .sidenote,
+    .marginal-note {
+        float: right;
+        clear: right;
+        width: 200px;
+        margin: 0.2rem -240px 1rem 2rem;
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+/* Footnotes list fallback styling */
+.footnotes {
+    font-size: theme.$small-font-size;
+    color: theme.$grey-color-light;
+    border-top: 1px dotted theme.$grey-color-light;
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+}
+
+main.text {
+    background-color: #fff;
+    border-radius: 8px;
+    img {
+        max-width: 100%;
     }
 }
 
@@ -100,22 +224,32 @@ footer.footer {
     }
 
     .page-link {
-        font-size: $small-font-size;
-        line-height: $small-font-size;
+        font-size: theme.$small-font-size;
+        line-height: theme.$small-font-size;
     }
 
     .linkdesc {
         color: #CCC;
     }
 
-    @include media-query($on-palm) {
+    a {
+        color: #567e5e;
+    }
+
+    a:visited {
+        color: #696;
+    }
+
+    @include theme.media-query(theme.$on-palm) {
         position: absolute;
         top: 9px;
-        right: $spacing-unit / 2;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
+        right: math.div(theme.$spacing-unit, 2);
+        background-color: theme.$background-color;
+        background-image: none;
+        border: 1px solid theme.$grey-color-light;
         border-radius: 5px;
         text-align: right;
+        z-index: 1000;
 
         label[for="nav-trigger"] {
             display: block;
@@ -136,7 +270,7 @@ footer.footer {
             text-align: center;
 
             > svg path {
-                fill: $grey-color-dark;
+                fill: theme.$grey-color-dark;
             }
         }
 
@@ -153,11 +287,16 @@ footer.footer {
         .page-link {
             display: block;
             padding: 5px 10px;
+            line-height: 1;
+            font-size: theme.$base-font-size;
 
             &:not(:last-child) {
                 margin-right: 0;
             }
             margin-left: 20px;
+        }
+        .page-link + br {
+            display: none;
         }
         .linkdesc {
             display: none;
@@ -174,16 +313,23 @@ ins {
     font-style: none;
 }
 
+// .marginal-note, .note, .caption {
+//     font-size: theme.$small-font-size;
+//     line-height: theme.$small-font-size;
+//     font-style: italic;
+// }
+
 .bottom-link {
     float: right;
     text-align: right;
     margin: 32px 0px 15px 0px;
-    @extend .note;
+    @extend %note;
 }
 
 .previous-post-link {
     @extend .bottom-link
 }
+
 .rss-subscribe {
     @extend .bottom-link
 }
@@ -200,29 +346,29 @@ ins {
     list-style: none;
 
     > li {
-        margin-bottom: $spacing-unit / 3;
+        margin-bottom: math.div(theme.$spacing-unit, 3);
         &:not(:last-child) {
-            border-bottom: 1px dashed $grey-color;
+            border-bottom: 1px dashed theme.$grey-color;
         }
     }
 
 }
 
 .post-meta {
-    font-size: $small-font-size;
-    color: $grey-color;
+    font-size: theme.$small-font-size;
+    color: theme.$grey-color;
 }
 
 .post-link {
     display: block;
-    @include relative-font-size(1.5);
+    @include theme.relative-font-size(1.5);
 }
 
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 4;
-    @include relative-font-size(1.2);
+    color: theme.$grey-color;
+    border-left: 4px solid theme.$grey-color-light;
+    padding-left: math.div(theme.$spacing-unit, 4);
+    @include theme.relative-font-size(1.2);
     font-style: italic;
 
     > :last-child {
@@ -237,8 +383,8 @@ blockquote {
 }
 
 .footer-heading {
-  @include relative-font-size(1.125);
-  margin-bottom: $spacing-unit / 2;
+  @include theme.relative-font-size(1.125);
+  margin-bottom: math.div(theme.$spacing-unit, 2);
 }
 
 .contact-list,
@@ -248,50 +394,52 @@ blockquote {
 }
 
 .footer-col-wrapper {
-  @include relative-font-size(0.9375);
-  color: $grey-color;
-  margin-left: -$spacing-unit / 2;
+  @include theme.relative-font-size(0.9375);
+  color: theme.$grey-color;
+  margin-left: -1 * math.div(theme.$spacing-unit, 2);
   @extend %clearfix;
+  background-color: #25383cdd;
+  background-blend-mode: darken;
 }
 
 .footer-col {
   float: left;
-  margin-bottom: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
+  margin-bottom: math.div(theme.$spacing-unit, 2);
+  padding-left: math.div(theme.$spacing-unit, 2);
 }
 
 .footer-col-1 {
-  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-  width:         calc(35% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(35% - (#{theme.$spacing-unit} / 2));
+  width:         calc(35% - (#{theme.$spacing-unit} / 2));
 }
 
 .footer-col-2 {
-  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-  width:         calc(20% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(20% - (#{theme.$spacing-unit} / 2));
+  width:         calc(20% - (#{theme.$spacing-unit} / 2));
 }
 
 .footer-col-3 {
-  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width:         calc(45% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(45% - (#{theme.$spacing-unit} / 2));
+  width:         calc(45% - (#{theme.$spacing-unit} / 2));
 }
 
-@include media-query($on-laptop) {
+@include theme.media-query(theme.$on-laptop) {
   .footer-col-1,
   .footer-col-2 {
-    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-    width:         calc(50% - (#{$spacing-unit} / 2));
+    width: -webkit-calc(50% - (#{theme.$spacing-unit} / 2));
+    width:         calc(50% - (#{theme.$spacing-unit} / 2));
   }
 
   .footer-col-3 {
-    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
+    width: -webkit-calc(100% - (#{theme.$spacing-unit} / 2));
+    width:         calc(100% - (#{theme.$spacing-unit} / 2));
   }
 }
 
-@include media-query($on-palm) {
+@include theme.media-query(theme.$on-palm) {
   .footer-col {
     float: none;
-    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
+    width: -webkit-calc(100% - (#{theme.$spacing-unit} / 2));
+    width:         calc(100% - (#{theme.$spacing-unit} / 2));
   }
 }

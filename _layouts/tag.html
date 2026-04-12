@@ -8,8 +8,13 @@ layout: page
     </div>
     {% endif %}
 
-    <ul class="post-list">
-      {% for post in site.tags[page.tag] %}
-      {% include post-list-entry.html %}
-      {% endfor %}
-    </ul>
+    {% assign posts = paginator.posts | default: site.tags[page.tag] %}
+
+    {% if posts.size > 0 %}
+      <ul class="post-list">
+        {% for post in posts %}
+        {% include post-list-entry.html %}
+        {% endfor %}
+      </ul>
+
+    {% endif %}

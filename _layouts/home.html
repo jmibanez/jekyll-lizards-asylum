@@ -1,19 +1,44 @@
 ---
-layout: default
 ---
+{% assign latest_post = site.posts | first %}
+{% assign page = latest_post %}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-<div class="home">
+  {%- include head.html -%}
 
-  {{ content }}
+  <body>
 
-  {% if site.posts.size > 0 %}
-    <ul class="post-list">
-      {% for post in site.posts %}
-      {% include post-list-entry.html %}
-      {% endfor %}
-    </ul>
+    <div id="masterwrap">
+      <div id="bodywrap">
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {% endif %}
+        {%- include header.html -%}
 
-</div>
+        <main class="text" aria-label="Content">
+          <div class="wrapper-and-marginalia">
+            <div class="wrapper">
+              {{ latest_post.content }}
+            </div>
+            <aside class="marginalia" aria-label="Marginal notes">
+              {% if page.id %}
+              <p class="permalink"><a href="{{ latest_post.url }}"><span class="grey fa-regular fa-bookmark"></span>Permalink</a></p>
+              {% endif %}
+              {% if page.tags %}
+              {% assign page_tags = page.tags | sort %}
+              <p class="tags">{% for tag in page_tags %}
+              <a href="/tag/{{ tag }}/index.html"><span class="grey fa-solid fa-tag"></span>{{ tag }}</a>{% unless forloop.last %}{% endunless %}
+              {% endfor %}
+              </p>
+              {% endif %}
+            </aside>
+          </div>
+        </main>
+
+        {%- include footer.html -%}
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
