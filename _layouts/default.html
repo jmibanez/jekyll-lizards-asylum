@@ -16,6 +16,9 @@
               {{ content }}
             </div>
             <aside class="marginalia" aria-label="Marginal notes">
+              {% if page.id %}
+              <p class="permalink"><a href="{{ latest_post.url }}"><span class="grey fa-regular fa-bookmark"></span>Permalink</a></p>
+              {% endif %}
               {% if page.tags %}
               {% assign page_tags = page.tags | sort %}
               <p class="tags">{% for tag in page_tags %}
