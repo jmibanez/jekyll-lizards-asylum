@@ -276,6 +276,7 @@ footer.footer {
             display: block;
             padding: 5px 10px;
             line-height: 1;
+            font-size: $base-font-size;
 
             &:not(:last-child) {
                 margin-right: 0;
