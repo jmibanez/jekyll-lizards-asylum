@@ -9,7 +9,8 @@
   {%- else -%}
     <title>{{ page.title | strip_html | escape }} | {{ site.title | escape }}</title>
   {%- endif -%}
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}" media="screen">
+  <link rel="stylesheet" href="{{ "/assets/print.css" | relative_url }}" media="print">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
   {%- feed_meta -%}

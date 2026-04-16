@@ -1,0 +1,36 @@
+---
+#
+---
+
+@use "asylum/theme";
+@use "asylum/basefont";
+
+header {
+    nav.links {
+        display: none;
+    }
+}
+
+footer {
+    display: none;
+}
+
+main {
+    p.permalink {
+        display: none;
+    }
+    p.original-permalink {
+        display: none;
+    }
+
+    a:after {
+        content: " (" attr(href) ")";
+    }
+
+    p.tags {
+        a:after {
+            content: none;
+        }
+    }
+}
+
